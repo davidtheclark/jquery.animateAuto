@@ -1,0 +1,28 @@
+#test-1 {
+  background: lightblue;
+  height: 0;
+  overflow: hidden;
+}
+
+#test-1 p {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  -ms-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+
+#test-1.is-opened p {
+  opacity: 1;
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  -ms-transition-delay: 1s;
+  -o-transition-delay: 1s;
+  transition-delay: 1s;
+}
+
+.container {
+  background: black;
+  width: 20em;
+}
