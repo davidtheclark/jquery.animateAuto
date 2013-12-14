@@ -1,4 +1,4 @@
 jquery.animateHeightAuto
 ========================
 
-A jQuery plugin for animate an element's height from something to `auto`.
+A jQuery plugin for animating an element's height from something to `auto`.
