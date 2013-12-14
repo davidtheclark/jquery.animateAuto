@@ -24,13 +24,12 @@
       // $el's parent and with $el's width, to ensure
       // it will have a height tailored to $el's context.
       // Return the clone's height.
-      var $parent = $el.parent();
       var $clone = $el.clone()
         .css({
           'width': $el.width(),
           'visibility': 'hidden'
         })
-        .appendTo($parent);
+        .appendTo($el.parent());
       var cloneContentHeight = $clone
         .height('auto')
         .height();
@@ -75,7 +74,7 @@
     // User can pass the 4 possible arguments in any order.
     // `options` are plugins-specific settings.
     // `speed`, `easing`, and `callback` corresponds to
-    //  (and become) jQuery.animate() arguments.
+    // (and become) jQuery.animate() arguments.
     var options, speed, easing, callback;
     var l = arguments.length;
     if (l > 4)
