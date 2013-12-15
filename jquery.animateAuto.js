@@ -1,8 +1,9 @@
 ;(function($) {
 
   function animateAuto(element, options, speed, easing, callback) {
+
     var $el = $(element),
-        settings = $.extend($.fn.animateAuto.defaults, options),
+        settings = $.extend({}, $.fn.animateAuto.defaults, options),
         dimension = settings.dimension,
         oppositeDimension = (dimension === 'height') ? 'width' : 'height';
 
@@ -18,7 +19,7 @@
         toggleEl($el);
         break;
       default:
-        throw new Error('jquery.animateAuto accepts as actions only "open", "close" and "toggle". You seem to have tried something else.');
+        throw new Error('jquery.animateAuto only performs the actions "open", "close" and "toggle". You seem to have tried something else.');
     }
 
     function getTargetDimension($el) {
@@ -46,34 +47,40 @@
       // As part of the callback, set $el's
       // inline-style dimension to `auto`.
       // And add the `openClass`.
-      var animObj = {};
-      animObj[dimension] = getTargetDimension($el);
-      $el.animate(animObj, speed, easing, function() {
-        $el.css(dimension, 'auto');
-        callback();
-      })
-        .addClass(settings.openClass);
+      if (!$el.hasClass(settings.openClass)) {
+        var animObj = {};
+        animObj[dimension] = getTargetDimension($el);
+        $el.animate(animObj, speed, easing, function() {
+          $el.css(dimension, 'auto');
+          callback();
+        })
+          .addClass(settings.openClass);
+      }
     }
 
     function closeEl($el) {
       // Pass jQuery.animate() $el's `closed`
       // and all the other parameters.
       // And remove the `openClass`.
-      var animObj = {};
-      animObj[dimension] = settings.closed;
-      $el.animate(animObj, speed, easing, callback)
-        .removeClass(settings.openClass);
+      if ($el.height() !== settings.closed) {
+        var animObj = {};
+        animObj[dimension] = settings.closed;
+        $el.animate(animObj, speed, easing, callback)
+          .removeClass(settings.openClass);
+      }
     }
 
     function toggleEl($el) {
-      if ($el.hasClass(settings.openClass))
+      if ($el.hasClass(settings.openClass)) {
         closeEl($el);
-      else
+      }
+      else {
         openEl($el);
+      }
     }
   }
 
-  $.fn.animateAuto = function() {
+  function processArgs() {
     // User can pass the 4 possible arguments in any order.
     // `options` are plugins-specific settings.
     // The options `dimensions` and `action` can also
@@ -84,54 +91,65 @@
         callback = function(){},
         speed, easing;
     var l = arguments.length;
-    if (l > 4)
-      throw new Error('jquery.animateAuto can only handle 4 arguments.');
     for (var i=0;i<l;i++) {
       var arg = arguments[i],
           argType = typeof arg;
       if (!arg) {
         continue;
       }
+      // Check for pre-established string values.
       switch (arg) {
+        // Check for `dimension` string.
         case 'height':
         case 'width':
           $.extend(options, { dimension: arg });
           continue;
+        // Check for `action` string.
         case 'open':
         case 'close':
-        case 'target':
+        case 'toggle':
           $.extend(options, { action: arg });
           continue;
+        // Check for `speed` string (in jQuery API).
         case 'fast':
         case 'slow':
           speed = arg;
           continue;
       }
+      // For other arguments.
       switch (argType) {
+        // Numbers will always be speeds.
         case 'number':
           speed = arg;
           continue;
+        // Strings, after above filtering, will
+        // always be easing.
         case 'string':
           easing = arg;
           continue;
+        // Functions will always be callbacks.
         case 'function':
           callback = arg;
           continue;
+        // Objects will always be arguments.
         case 'object':
           $.extend(options, arg);
           continue;
       }
     }
+    return [options, speed, easing, callback];
+  }
 
+  $.fn.animateAuto = function() {
+    var argsArray = processArgs.apply(this, arguments);
     return this.each(function () {
-      animateAuto(this, options, speed, easing, callback);
+      animateAuto.apply(null, [this].concat(argsArray));
     });
   };
 
-  // Allow user to modify defaults.
   $.fn.animateAuto.defaults = {
     dimension: 'height', // or 'width'
-    action: 'toggle', // or 'open', 'close'
+    action: 'toggle', // or 'open' or 'close'
     closed: 0,
     openClass: 'is-opened'
   };

@@ -1,28 +1,33 @@
-#test-1 {
+body {
+  padding-bottom: 20em;
+}
+
+.content {
   background: lightblue;
-  width: 0;
-  height: 5em;
+  height: 0;
   overflow: hidden;
 }
-
-#test-1 p {
-  opacity: 0;
-  -webkit-transition: opacity 0.3s linear;
-  -moz-transition: opacity 0.3s linear;
-  -ms-transition: opacity 0.3s linear;
-  -o-transition: opacity 0.3s linear;
-  transition: opacity 0.3s linear;
+.content.m-width {
+  height: auto;
+  width: 0;
 }
 
-#test-1.is-opened p {
-  opacity: 1;
-  -webkit-transition-delay: 1s;
-  -moz-transition-delay: 1s;
-  -ms-transition-delay: 1s;
-  -o-transition-delay: 1s;
-  transition-delay: 1s;
+.content.restricted-width {
+  max-width: 20em;
 }
 
-.container {
-  background: black;
+.content.restricted-height {
+  height: 5em;
+}
+
+.content.min-height {
+  min-height: 5em;
+}
+
+.content.is-active {
+  background: red;
+}
+
+.content.is-green {
+  background: green !important;
 }
