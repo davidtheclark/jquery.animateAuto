@@ -109,6 +109,14 @@ $('#trigger-callback-close').click(function() {
   });
 });
 
+function externalCallback() {
+  alert('Successful external callback.');
+}
+
+$('#trigger-callback-external').click(function() {
+  $('#content-callback').animateAuto(externalCallback);
+});
+
 // weird argument orders
 
 $('#trigger-arg-order-1').click(function() {
