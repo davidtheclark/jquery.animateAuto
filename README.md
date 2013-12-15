@@ -2,7 +2,7 @@
 
 A jQuery plugin for animating an element's height or width from something to `auto` or `auto` to something.
 
-This one should be somewhat more robust, flexible, customizable, and easy-to-reuse than the slap-and-dash solutions you found with your Google search.
+This one should be somewhat more reliable, flexible, customizable, and easy-to-reuse than the slap-and-dash solutions you found with your Google search.
 
 ## Arguments
 
