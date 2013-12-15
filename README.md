@@ -8,6 +8,8 @@ This one should be somewhat more reliable, flexible, customizable, and easy-to-r
 
 The following arguments **are all optional** and can be passed **in any order**.
 
+You might also consider skipping to the examples at the bottom, especially if you've seen this before.
+
 
 ### jQuery.animate() Options
 
