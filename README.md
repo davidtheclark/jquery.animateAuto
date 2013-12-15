@@ -214,6 +214,7 @@ $('#element').animateAuto({
 $('#element').animateAuto('width', 'linear', 100, {
   closed: 40
 });
-```
+
 // Change the default openClass for your project
 $.fn.animateAuto.defaults.openClass = 'my-different-class';
+```
