@@ -1,6 +1,6 @@
 ;(function($) {
 
-  function animateAuto(element, options, speed, easing, callback) {
+  function animateAuto(element, options, duration, easing, callback) {
 
     var $el = $(element),
         settings = $.extend({}, $.fn.animateAuto.defaults, options),
@@ -50,7 +50,7 @@
       if (!$el.hasClass(settings.openClass)) {
         var animObj = {};
         animObj[dimension] = getTargetDimension($el);
-        $el.animate(animObj, speed, easing, function() {
+        $el.animate(animObj, duration, easing, function() {
           $el.css(dimension, 'auto');
           callback();
         })
@@ -65,7 +65,7 @@
       if ($el.height() !== settings.closed) {
         var animObj = {};
         animObj[dimension] = settings.closed;
-        $el.animate(animObj, speed, easing, callback)
+        $el.animate(animObj, duration, easing, callback)
           .removeClass(settings.openClass);
       }
     }
@@ -85,11 +85,11 @@
     // `options` are plugins-specific settings.
     // The options `dimensions` and `action` can also
     // be passed as isolated strings.
-    // `speed`, `easing`, and `callback` corresponds to
+    // `duration`, `easing`, and `callback` corresponds to
     // (and become) jQuery.animate() arguments.
     var options = {},
         callback = function(){},
-        speed, easing;
+        duration, easing;
     var l = arguments.length;
     for (var i=0;i<l;i++) {
       var arg = arguments[i],
@@ -110,17 +110,17 @@
         case 'toggle':
           $.extend(options, { action: arg });
           continue;
-        // Check for `speed` string (in jQuery API).
+        // Check for `duration` string (in jQuery API).
         case 'fast':
         case 'slow':
-          speed = arg;
+          duration = arg;
           continue;
       }
       // For other arguments.
       switch (argType) {
-        // Numbers will always be speeds.
+        // Numbers will always be durations.
         case 'number':
-          speed = arg;
+          duration = arg;
           continue;
         // Strings, after above filtering, will
         // always be easing.
@@ -137,7 +137,7 @@
           continue;
       }
     }
-    return [options, speed, easing, callback];
+    return [options, duration, easing, callback];
   }
 
   $.fn.animateAuto = function() {

@@ -122,8 +122,6 @@ $('#trigger-callback-external').click(function() {
 $('#trigger-arg-order-1').click(function() {
   $('#content-arg-order').animateAuto('open', function() {
     alert('open');
-  }, {
-    openClass: 'is-active'
   }, 1000, 'linear');
 });
 

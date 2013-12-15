@@ -2,6 +2,8 @@
 
 A jQuery plugin for animating an element's height or width from something to `auto` or `auto` to something.
 
+This one should be somewhat more robust, flexible, customizable, and easy-to-reuse than the slap-and-dash solutions you found with your Google search.
+
 ## Arguments
 
 The following arguments **are all optional** and can be passed **in any order**.
@@ -88,6 +90,8 @@ The following options are available:
 - passed as: an isolated string or part of the Options object.
  
 Which dimension should be animated to or from `auto`?
+
+The default is `'height'`, and that's probably what you want to do. If you want to animate width, be warned that *width only works if the content has a fixed height, or a min-height and content that will not exceed that min-height as width expands.*
 
 ```javascript
 // e.g.
