@@ -198,7 +198,7 @@ $('#element').animateAuto({
   alert('You did it again!');
 });
 
-// or do the same thing with different arguments
+// or do the same thing with differently written arguments
 $('#element').animateAuto('open', function() {
   alert('Three cheers for you!');
 }, { openClass: 'thing-active' });
@@ -210,7 +210,7 @@ $('#element').animateAuto({
   closed: 40
 }, 100, 'linear');
 
-// or do the same thing with different arguments
+// or do the same thing with differently written arguments
 $('#element').animateAuto('width', 'linear', 100, {
   closed: 40
 });
