@@ -17,7 +17,7 @@ Make sure you're familiar with [how to use jQuery.animate()](http://api.jquery.c
 - default: `400`
 - options: Any number. The strings `'slow'` and `'fast'`.
 
-"A string or number determining how long the animation will run."
+> A string or number determining how long the animation will run.
 
 ```javascript
 // Examples:
@@ -31,7 +31,7 @@ $('#element').animateAuto(300);
 - default: `'swing'`
 - options: `'swing'` or `'linear'`
 
-"A string indicating which easing function to use for the transition."
+> A string indicating which easing function to use for the transition.
 
 Additional plugins can allow for more easing options.
 
@@ -44,7 +44,7 @@ $('#element').animateAuto('linear');
 
 - type: `Function`
 
-"A function to call once the animation is complete."
+> A function to call once the animation is complete.
 
 ```javascript
 // Examples:
