@@ -20,7 +20,7 @@ Make sure you're familiar with [how to use jQuery.animate()](http://api.jquery.c
 > A string or number determining how long the animation will run.
 
 ```javascript
-// Examples:
+// e.g.
 $('#element').animateAuto('slow');
 $('#element').animateAuto(300);
 ```
@@ -36,7 +36,7 @@ $('#element').animateAuto(300);
 Additional plugins can allow for more easing options.
 
 ```javascript
-// Examples:
+// e.g.
 $('#element').animateAuto('linear');
 ```
 
@@ -47,7 +47,7 @@ $('#element').animateAuto('linear');
 > A function to call once the animation is complete.
 
 ```javascript
-// Examples:
+// e.g.
 $('#element').animateAuto(function() {
   alert('You did it!');
 });
@@ -55,6 +55,7 @@ $('#element').animateAuto(function() {
 function cheer() {
   alert('Hooray!');
 }
+
 $('#element').animateAuto(cheer);
 ```
 
@@ -89,7 +90,7 @@ The following options are available:
 Which dimension should be animated to or from `auto`?
 
 ```javascript
-// Examples:
+// e.g.
 $('#element').animateAuto('width');
 $('#element').animateAuto({
   dimension: 'width'
@@ -107,7 +108,7 @@ $('#element').animateAuto({
 Which action should be performed?
 
 ```javascript
-// Examples:
+// e.g.
 $('#element').animateAuto('open');
 $('#element').animateAuto({
   action: 'open'
@@ -123,7 +124,7 @@ $('#element').animateAuto({
 What is the height of the element when it is closed? *Must be a pixel value.*
 
 ```javascript
-// Examples:
+// e.g.
 $('#element').animateAuto({
   closed: 30
 });
@@ -140,7 +141,7 @@ What class should be applied to the element when it is opened?
 This class is used within the plugin to test whether or not the element is opened. It can also be used by you to add CSS rules to the open state.
 
 ```javascript
-// Examples:
+// e.g.
 $('#element').animateAuto({
   openClass: 'thing-active'
 });
@@ -160,7 +161,8 @@ $('#element').animateAuto({
 }, function() {
   alert('You did it again!');
 });
-// or
+
+// or do the same thing with different arguments
 $('#element').animateAuto('open', function() {
   alert('Three cheers for you!');
 }, { openClass: 'thing-active' });
@@ -171,7 +173,8 @@ $('#element').animateAuto({
   dimension: 'width'
   closed: 40
 }, 100, 'linear');
-// or
+
+// or do the same thing with different arguments
 $('#element').animateAuto('width', 'linear', 100, {
   closed: 40
 });
