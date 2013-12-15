@@ -1,3 +1,5 @@
 $('#btn-1').click(function() {
-  $('#test-1').animateHeightAuto('slow');
+  $('#test-1').animateAuto('width', {
+    action: 'open'
+  }, 2000);
 });

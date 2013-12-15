@@ -1,6 +1,7 @@
 #test-1 {
   background: lightblue;
-  height: 0;
+  width: 0;
+  height: 5em;
   overflow: hidden;
 }
 
@@ -24,5 +25,4 @@
 
 .container {
   background: black;
-  width: 20em;
 }
