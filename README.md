@@ -2,7 +2,7 @@
 
 A jQuery plugin for animating an element's height or width from something to `auto` or `auto` to something.
 
-This one should be somewhat more reliable, flexible, customizable, and easy-to-reuse than the slap-and-dash solutions you found with your Google search.
+This one should be somewhat more reliable, flexible, customizable, and easy-to-reuse than the slap-and-dash solutions you found with your Google search. At least, that's the goal.
 
 ## Arguments
 
@@ -157,6 +157,38 @@ $('#element').animateAuto({
 // Default
 $('#element').animateAuto();
 
+// Close the element (or if it's already closed, ignore)
+$('#element').animateAuto('close');
+
+// Use linear easing and fast animation
+$('#element').animateAuto('linear', 'fast');
+
+// Animate width
+$('#element').animateAuto('width');
+
+// Use a callback and pass a couple of options
+function doThisAfter() {
+  // something you want done
+}
+$('#element').animateAuto({
+  dimension: 'width',
+  action: 'close'
+}, doThisAfter);
+
+// Make a button animate the height of your
+// element to `auto`.
+$('#button').click(function() {
+  $('#element').animateAuto();
+});
+
+// Different open and close buttons.
+$('#open-button').click(function() {
+  $('#element').animateAuto('open');
+});
+$('#close-button').click(function() {
+  $('#element').animateAuto('close');
+});
+
 // Only open, and add a special openClass,
 // then call a callback.
 $('#element').animateAuto({
@@ -183,3 +215,5 @@ $('#element').animateAuto('width', 'linear', 100, {
   closed: 40
 });
 ```
+// Change the default openClass for your project
+$.fn.animateAuto.defaults.openClass = 'my-different-class';
