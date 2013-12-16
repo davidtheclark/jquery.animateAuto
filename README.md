@@ -109,7 +109,7 @@ $('#element').animateAuto({
 
 - type: `String`
 - default: `'toggle'`
-- options: `'height'`, `'open'`, `'close'`
+- options: `'toggle'`, `'open'`, `'close'`
 - passed as: an isolated string or part of the Options object.
 
 
