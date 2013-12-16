@@ -62,7 +62,7 @@
       // Pass jQuery.animate() $el's `closed`
       // and all the other parameters.
       // And remove the `openClass`.
-      if ($el.height() !== settings.closed) {
+      if ($el.css(dimension) !== settings.closed) {
         var animObj = {};
         animObj[dimension] = settings.closed;
         $el.animate(animObj, duration, easing, callback)
