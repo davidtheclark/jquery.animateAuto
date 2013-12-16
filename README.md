@@ -1,8 +1,10 @@
 #jquery.animateAuto
 
-A jQuery plugin for animating an element's height or width from something to `auto` or `auto` to something.
+A jQuery plugin for using jQuery animation to animate an element's height or width from something to `auto` or `auto` to something.
 
 This one should be somewhat more reliable, flexible, customizable, and easy-to-reuse than the slap-and-dash solutions you found with your Google search. At least, that's the goal.
+
+**If you want to use CSS transitions instead of jQuery animations, take a look at [jquery.cssAnimateAuto](https://github.com/davidtheclark/jquery.cssAnimateAuto).**
 
 ## Arguments
 
